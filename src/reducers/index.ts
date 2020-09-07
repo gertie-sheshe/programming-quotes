@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { quotesReducer } from './quotes';
+import { QuotesState } from './quotes';
 
-// interface StoreState {
-//   quotes: any;
-// }
+export interface StoreState {
+  quotes: QuotesState;
+}
 
-export const reducers = combineReducers({
-  quote: quotesReducer,
+export const reducers = combineReducers<StoreState>({
+  quotes: quotesReducer,
 });
