@@ -1,11 +1,20 @@
 import React from 'react';
-import { App } from './components/App';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
+import logger from 'redux-logger';
+
+import { App } from './components/App';
+import { reducers } from './reducers';
+
+const store = createStore(reducers, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export class App extends Component {
-  render() {
+  render(): JSX.Element {
     return <div>Hello World</div>;
   }
 }
